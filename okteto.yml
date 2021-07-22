@@ -6,6 +6,7 @@ services:
     build: .
     replicas: 1
     ports:
+      - 8080
       - 5432
     resources:
       cpu: 100m
