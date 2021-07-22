@@ -2,7 +2,7 @@ name: go-moviestore
 services:
   restapi:
     public: true
-    image: DOCKERHUBUSERNAME/go-moviestore:latest
+    image: anitaachu/go-moviestore:latest
     build: .
     replicas: 1
     ports:
