@@ -1,0 +1,15 @@
+name: go-moviestore
+image: golang:alphine
+command: bash
+securityContext:
+  capabilities:
+    add:
+    - SYS_PTRACE
+volumes:
+  - /go/pkg/
+  - /root/.cache/go-build/
+sync:
+  - .:/usr/src/app
+forward:
+  - 8080:8080
+  - 5432:5432
