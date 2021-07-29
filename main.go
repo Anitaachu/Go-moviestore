@@ -42,7 +42,9 @@ var db *gorm.DB
 var err error
 
 func main() {
-	db, err = gorm.Open("postgres", "postgres://postgres:Anita63@localhost:5432/ecommerce?sslmode=disable")
+	POSTGRES_CONNECTION := fmt.Sprintf("postgresql://doadmin:xb1dzpk16nieox53@anita-postgresql-do-user-7928138-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require")
+
+	db, err = gorm.Open("postgres", POSTGRES_CONNECTION)
 	if err != nil {
 		log.Fatal(err)
 	} else {
