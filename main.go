@@ -64,7 +64,7 @@ func main() {
 	// Database connection
 	dbURI := fmt.Sprintf("host=%s user=%s dbName=%s sslmode=disable password=%s dbPort=%s", host, user, dbName, password, dbPort)
 
-	db, err = gorm.Open("postgres", dbURI)
+	//db, err = gorm.Open("postgres", dbURI)
 	if err != nil {
 		log.Fatal(err)
 	} else {
