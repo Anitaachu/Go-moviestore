@@ -8,8 +8,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"gorm.io/driver/postgres"
+  	"gorm.io/gorm"
 )
 
 type Person struct {
@@ -44,10 +44,10 @@ var err error
 
 func main() {
 	
-	POSTGRES_CONNECTION := os.Getenv("POSTGRES_CONNECTION")
+	postgresConnection := os.Getenv("POSTGRES_CONNECTION")
 
 
-	db, err = gorm.Open("postgres", POSTGRES_CONNECTION)
+	db, err = gorm.Open(postgres.Open(postgresConnection))
 	if err != nil {
 		log.Fatal(err)
 		panic(err)
