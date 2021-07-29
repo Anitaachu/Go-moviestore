@@ -42,6 +42,7 @@ var db *gorm.DB
 var err error
 
 func main() {
+	
 	POSTGRES_CONNECTION := fmt.Sprintf("postgresql://doadmin:xb1dzpk16nieox53@anita-postgresql-do-user-7928138-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require")
 
 	db, err = gorm.Open("postgres", POSTGRES_CONNECTION)
