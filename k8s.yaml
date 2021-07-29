@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moviestore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moviestore
+  template:
+    metadata:
+      labels:
+        app: moviestore
+    spec:
+      containers:
+      - image: registry.cloud.okteto.net/anitaachu/moviestore:golang
+        name: moviestore
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: moviestore
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "moviestore"
+    port: 8080
+  selector:
+    app: moviestore
