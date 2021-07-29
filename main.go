@@ -54,17 +54,17 @@ func main() {
 		log.Println("env loaded!")
 	}
 	// Loading environment vairiables
-	//dialect := os.Getenv("DIALECT")
-	//user := os.Getenv("USER")
-	//password := os.Getenv("PASSWORD")
-	//host := os.Getenv("HOST")
-	//dbName := os.Getenv("NAME")
-	//dbPort := os.Getenv("DBPORT")
+	dialect := os.Getenv("DIALECT")
+	user := os.Getenv("USER")
+	password := os.Getenv("PASSWORD")
+	host := os.Getenv("HOST")
+	dbName := os.Getenv("NAME")
+	dbPort := os.Getenv("DBPORT")
 
 	// Database connection
-	//dbURI := fmt.Sprintf("host=%s user=%s dbName=%s sslmode=disable password=%s dbPort=%s", host, user, dbName, password, dbPort)
+	dbURI := fmt.Sprintf("host=%s user=%s dbName=%s sslmode=disable password=%s dbPort=%s", host, user, dbName, password, dbPort)
 
-	db, err = gorm.Open("postgres", "postgres://postgres:Anita63@localhost:5432/ecommerce?sslmode=disable")
+	db, err = gorm.Open("postgres", dbURI)
 	if err != nil {
 		log.Fatal(err)
 	} else {
