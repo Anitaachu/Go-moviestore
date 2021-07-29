@@ -50,9 +50,15 @@ func main() {
 	db, err = gorm.Open("postgres", POSTGRES_CONNECTION)
 	if err != nil {
 		log.Fatal(err)
+		panic(err)
 	} else {
 		fmt.Println("Successfully connected to database!")
 
+	}
+	
+	err = db.DB().Ping()
+	if err != nil {
+		panic(err)
 	}
 
 	defer db.Close()
