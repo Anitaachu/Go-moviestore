@@ -13,4 +13,5 @@ RUN go build -o /go-moviestore
 
 EXPOSE 8080
 
-CMD [ "/go-moviestore" ]
+# CMD [ "/go-moviestore" ]
+CMD [ "go run main.go" ]
