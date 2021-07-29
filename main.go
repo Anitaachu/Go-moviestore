@@ -7,12 +7,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-
 	"github.com/jinzhu/gorm"
-	"github.com/joho/godotenv"
-
-	//"github.com/rs/cors"
-
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
@@ -47,24 +42,7 @@ var db *gorm.DB
 var err error
 
 func main() {
-	err = godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("error loading %s", err)
-	} else {
-		log.Println("env loaded!")
-	}
-	// Loading environment vairiables
-	dialect := os.Getenv("DIALECT")
-	user := os.Getenv("USER")
-	password := os.Getenv("PASSWORD")
-	host := os.Getenv("HOST")
-	dbName := os.Getenv("NAME")
-	dbPort := os.Getenv("DBPORT")
-
-	// Database connection
-	dbURI := fmt.Sprintf("host=%s user=%s dbName=%s sslmode=disable password=%s dbPort=%s", host, user, dbName, password, dbPort)
-
-	//db, err = gorm.Open("postgres", dbURI)
+	db, err = gorm.Open("postgres", "postgres://postgres:Anita63@localhost:5432/ecommerce?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	} else {
