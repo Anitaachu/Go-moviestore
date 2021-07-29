@@ -46,6 +46,7 @@ func main() {
 	
 	postgresConnection := os.Getenv("POSTGRES_CONNECTION")
 
+	fmt.Println(postgresConnection)
 
 	db, err = gorm.Open(postgres.Open(postgresConnection))
 	if err != nil {
