@@ -3,7 +3,7 @@ FROM golang:1.16-alpine
 
 WORKDIR /app
 
-ENV postgres_connection postgres_connection
+ENV POSTGRES_CONNECTION POSTGRES_CONNECTION
 
 COPY go.mod ./
 COPY go.sum ./
