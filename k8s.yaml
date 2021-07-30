@@ -13,7 +13,7 @@ spec:
         app: moviestore
     spec:
       containers:
-      - image: registry.cloud.okteto.net/anitaachu/moviestore:golang
+      - image: registry.cloud.okteto.net/anitaachu/go-moviestore:golang
         name: moviestore
 
 ---
