@@ -44,10 +44,10 @@ var err error
 
 func main() {
 	
-	POSTGRES_CONNECTION := fmt.Sprintf(os.Getenv("POSTGRES_CONNECTION"))
+	postgres_connection := fmt.Sprintf(os.Getenv("postgres_connection"))
 
 
-	db, err = gorm.Open("postgres", POSTGRES_CONNECTION)
+	db, err = gorm.Open("postgres", postgres_connection)
 	if err != nil {
 		log.Fatal(err)
 		panic(err)
