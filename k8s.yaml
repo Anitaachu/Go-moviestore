@@ -15,6 +15,9 @@ spec:
       containers:
       - image: registry.cloud.okteto.net/anitaachu/go-moviestore:golang
         name: moviestore
+        envFrom:
+          - secretRef:
+              name: db-secret
 
 ---
 
