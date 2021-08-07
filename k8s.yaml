@@ -14,10 +14,12 @@ spec:
     spec:
       containers:
       - image: registry.cloud.okteto.net/anitaachu/go-moviestore:golang
-        name: moviestore
-        envFrom:
-          - secretRef:
-              name: db-secret
+        env:
+        - name: POSTGRES_CONNECTION
+          valueFrom:
+            secretKeyRef:
+              name: db-creds
+              key: connection
 
 ---
 
@@ -34,3 +36,12 @@ spec:
     port: 8080
   selector:
     app: moviestore
+    
+ ---
+ apiVersion: v1
+ kind: Secret
+ metadata:
+  name: db-creds
+ type: Opaque
+ data:
+  connection: cG9zdGdyZXNxbDovL2RvYWRtaW46eGIxZHpwazE2bmllb3g1M0Bhbml0YS1wb3N0Z3Jlc3FsLWRvLXVzZXItNzkyODEzOC0wLmIuZGIub25kaWdpdGFsb2NlYW4uY29tOjI1MDYwL2RlZmF1bHRkYj9zc2xtb2RlPXJlcXVpcmU=
