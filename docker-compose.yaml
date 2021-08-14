@@ -1,20 +1,13 @@
+
 services:
   api:
     build:  ./Go-moviestore
     ports:
       - "8080:8080"
     volumes:
-      - ./Go-moviestore:/Go-moviestore
-    environment:
-       ENV: development
-  web:
-    build: ./backend
+      - ./Go-moviestore:/usr/src/app
     ports:
       - "8080:8080"
-    volumes:
-      - ./backend:/usr/src/app
-    depends_on:
-      - Go-moviestore
 
 
 
