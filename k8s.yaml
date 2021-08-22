@@ -4,7 +4,6 @@ metadata:
  name: db-creds
 type: Opaque
 data:
- connection: cG9zdGdyZXM6Ly9vZmhheWt2eDp0cGQwc25YWnIwQ0JsUDRuc19OS1ZXRmN2MEZRNThibkBjaHVuZWUuZGIuZWxlcGhhbnRzcWwuY29tL29maGF5a3Z4
 ---
 
 apiVersion: apps/v1
